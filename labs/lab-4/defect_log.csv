@@ -1,0 +1,13 @@
+Defect ID,Lifecycle stage,Actor,Notes,Severity,Priority
+LIB-DEF-001,New,Tester (student),Registration accepts a 7-character password 'Pass0rd' and creates the account. Found by TC-001-02. REQ-001.,-,-
+LIB-DEF-001,Triaged,Test lead,Confirmed reproducible. Weak-password rule not enforced on the server.,Major,P2
+LIB-DEF-001,Assigned,Test lead,Assigned to registration developer.,Major,P2
+LIB-DEF-001,Fixed,Developer,Server-side length check (>= 8) added; error message shown.,Major,P2
+LIB-DEF-001,Verified,Tester (student),Re-ran TC-001-02 (rejected) and TC-001-01 (8 chars accepted).,Major,P2
+LIB-DEF-001,Closed,Test lead,Verified in build; closed.,Major,P2
+LIB-DEF-002,New,Tester (student),Book returned exactly on the due date is charged P2.00 instead of P0.00 (off-by-one in overdue-days calculation). Found by TC-007-02. REQ-007.,-,-
+LIB-DEF-002,Triaged,Test lead,Confirmed. Users are wrongly charged money.,Critical,P1
+LIB-DEF-002,Assigned,Test lead,Assigned to returns developer.,Critical,P1
+LIB-DEF-002,Fixed,Developer,"Overdue days = max(0, return_date - due_date); fine = days x 2.00.",Critical,P1
+LIB-DEF-002,Verified,Tester (student),"Re-ran TC-007-01..04: P0, P0, P2, P10 as expected.",Critical,P1
+LIB-DEF-002,Closed,Test lead,Verified in build; closed.,Critical,P1

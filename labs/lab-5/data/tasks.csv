@@ -1,0 +1,6 @@
+title,priority,expected_pending
+Write report,1,Pending: 1
+Review code,3,Pending: 1
+Plan sprint,5,Pending: 1
+Fix bug 42,2,Pending: 1
+Deploy,4,Pending: 1

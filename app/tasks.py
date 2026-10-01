@@ -26,7 +26,7 @@ def add_task(tasks, title, priority=1, tags=None):
     if tags is None:
         tags = []
     task = {
-        "id": len(tasks) + 1,
+        "id": max((t["id"] for t in tasks), default=0) + 1,
         "title": title,
         "priority": priority,
         "tags": tags,

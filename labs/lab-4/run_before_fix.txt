@@ -1,0 +1,9 @@
+E       AssertionError: duplicate ids [2, 3, 3]
+E       assert 3 == 2
+E        +  where 3 = len([2, 3, 3])
+E        +  and   2 = len({2, 3})
+E        +    where {2, 3} = set([2, 3, 3])
+E           TypeError: can only concatenate str (not "int") to str
+FAILED tests/test_requirements_lab4.py::test_TC4_02_add_task_ids_unique_after_removal
+FAILED tests/test_requirements_lab4.py::test_TC4_10_report_lists_every_task
+2 failed, 9 passed in 0.03s

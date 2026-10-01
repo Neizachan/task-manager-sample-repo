@@ -1,0 +1,26 @@
+diff --git a/app/storage.py b/app/storage.py
+index 8fc5a53..0976432 100644
+--- a/app/storage.py
++++ b/app/storage.py
+@@ -8,7 +8,7 @@ def format_task_report(tasks):
+     """Build a plain-text report of all tasks."""
+     lines = []
+     for task in tasks:
+-        line = "Task #" + task["id"] + ": " + task["title"]
++        line = f"Task #{task['id']}: {task['title']}"
+         lines.append(line)
+     return "\n".join(lines)
+ 
+diff --git a/app/tasks.py b/app/tasks.py
+index 98572dc..6001f13 100644
+--- a/app/tasks.py
++++ b/app/tasks.py
+@@ -26,7 +26,7 @@ def add_task(tasks, title, priority=1, tags=None):
+     if tags is None:
+         tags = []
+     task = {
+-        "id": len(tasks) + 1,
++        "id": max((t["id"] for t in tasks), default=0) + 1,
+         "title": title,
+         "priority": priority,
+         "tags": tags,

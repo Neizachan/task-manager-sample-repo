@@ -8,17 +8,15 @@ def format_task_report(tasks):
     """Build a plain-text report of all tasks."""
     lines = []
     for task in tasks:
-        line = "Task #" + task["id"] + ": " + task["title"]
+        line = f"Task #{task['id']}: {task['title']}"
         lines.append(line)
     return "\n".join(lines)
 
 
 def days_until_due(due_date_str):
     """Return the number of days remaining until a task's due date."""
-    due_date = datetime.datetime.strptime(due_date_str, "%Y-%m-%d")
-    today = datetime.datetime.now()
-    delta = due_date - today
-    return delta.days
+    due_date = datetime.datetime.strptime(due_date_str, "%Y-%m-%d").date()
+    return (due_date - datetime.date.today()).days
 
 
 def build_query(title_filter):

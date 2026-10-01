@@ -1,0 +1,32 @@
+Test Case ID,Requirement ID,"Type (P=positive, N=negative, B=boundary)",Level,Scenario / input,Expected result,Status
+TC-001-01,REQ-001,P,System,"Register new email nina@example.com, password 'Passw0rd' (exactly 8 chars)",Account created; user can log in. (Boundary: minimum valid length),Designed - not executed
+TC-001-02,REQ-001,N,Unit,Register with password 'Pass0rd' (7 chars),Registration rejected with a message about the 8-character minimum; no account created. (Boundary: just below minimum),Designed - not executed
+TC-001-03,REQ-001,N,Unit,Register with an empty password,Registration rejected; no account created,Designed - not executed
+TC-002-01,REQ-002,P,Integration,"Register a second user with a different, unused email",Account created (no false 'already in use' rejection),Designed - not executed
+TC-002-02,REQ-002,N,Integration,Register with an email that already has an account,Registration rejected; error message states the email is already in use; still exactly one account for that email,Designed - not executed
+TC-002-03,REQ-002,N,Integration,Register 'NINA@Example.com' when 'nina@example.com' exists  [ASSUMPTION: emails are case-insensitive],Rejected as duplicate,Designed - not executed
+TC-003-01,REQ-003,P,Integration,Search catalogue by exact title of an existing book,That book is in the results,Designed - not executed
+TC-003-02,REQ-003,P,Integration,Search by author name that has 2 books in catalogue,Both books returned,Designed - not executed
+TC-003-03,REQ-003,P,Integration,Search by a valid ISBN,Exactly the matching book returned,Designed - not executed
+TC-003-04,REQ-003,B,Performance,"Search with a catalogue of >=10,000 records (measure 20 runs)",Results returned in <= 2 seconds every run (boundary: 2.0 s),Designed - not executed
+TC-003-05,REQ-003,N,System,Submit an empty search box  [ASSUMPTION: requirement silent],No crash and no full-catalogue dump; user is prompted to enter a term,Designed - not executed
+TC-004-01,REQ-004,P,System,Search for 'zzzzqqqq' (matches nothing),"Message 'No results found' displayed, empty result list",Designed - not executed
+TC-004-02,REQ-004,N,System,Search for a term that has matches,'No results found' is NOT displayed,Designed - not executed
+TC-004-03,REQ-004,N,System,Search for an ISBN that is well-formed but not in the catalogue,'No results found' displayed,Designed - not executed
+TC-005-01,REQ-005,P,System,Logged-in user with 0 loans borrows 1 available book,Loan created; due date = borrow date + 14 days; book becomes unavailable,Designed - not executed
+TC-005-02,REQ-005,B,System,User with 2 loans (none overdue) borrows a 3rd available book,Loan created (boundary: 3rd book allowed),Designed - not executed
+TC-005-03,REQ-005,N,System,User tries to borrow a book that is already on loan to someone else,Borrow refused: book unavailable; no loan created,Designed - not executed
+TC-005-04,REQ-005,N,System,Visitor who is not registered / not logged in tries to borrow,Borrow refused; user asked to register or log in,Designed - not executed
+TC-006-01,REQ-006,N,System,User with 3 books on loan (none overdue) tries to borrow a 4th,Borrow blocked with limit message; still 3 loans (boundary: 3 -> 4),Designed - not executed
+TC-006-02,REQ-006,N,System,"User with 1 loan, which is overdue by 1 day, tries to borrow another book",Borrow blocked with overdue message; no new loan,Designed - not executed
+TC-006-03,REQ-006,P,System,"User with 2 loans, none overdue, borrows 1 book",Allowed (control: neither blocking condition holds),Designed - not executed
+TC-007-01,REQ-007,P,System,Return a book 1 day before the due date,Return accepted; book available again; fine = P0.00,Designed - not executed
+TC-007-02,REQ-007,B,Unit,Return a book exactly ON the due date,Accepted; fine = P0.00 (not yet overdue),Designed - not executed
+TC-007-03,REQ-007,B,Unit,Return a book 1 day after the due date,Fine = P2.00,Designed - not executed
+TC-007-04,REQ-007,P,Unit,Return a book 5 days after the due date,Fine = P10.00 (5 x P2.00); book available again,Designed - not executed
+TC-007-05,REQ-007,N,System,Return a book that is not on loan / already returned,Rejected with error; availability and fines unchanged,Designed - not executed
+TC-008-01,REQ-008,P,Integration,Loan due in exactly 2 days; run the notification job,One reminder email sent to the user's address,Designed - not executed
+TC-008-02,REQ-008,P,Integration,"Loan overdue by 1, 2 and 3 days; run job each day",One overdue email on each of the three days (3 in total),Designed - not executed
+TC-008-03,REQ-008,N,Integration,Loan due in 3 days; run the job,No email sent (boundary: one day too early),Designed - not executed
+TC-008-04,REQ-008,N,Integration,Overdue book is returned; run job the next day,No further overdue email,Designed - not executed
+TC-008-05,REQ-008,N,Integration,Two overdue books for one user; run job,"One email per overdue book (or clearly itemised), none missed  [ASSUMPTION]",Designed - not executed

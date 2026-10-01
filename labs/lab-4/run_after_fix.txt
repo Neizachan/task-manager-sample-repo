@@ -1,0 +1,3 @@
+XFAIL tests/test_calculate_discount_lab3.py::test_non_bool_flag_rejected[TC16-None] - DEFECT L3-D3: non-bool is_premium silently treated by truthiness
+XFAIL tests/test_calculate_discount_lab3.py::test_non_bool_flag_rejected[TC17-yes] - DEFECT L3-D3: non-bool is_premium silently treated by truthiness
+27 passed, 7 xfailed in 0.04s

@@ -1,2 +1,6 @@
-﻿tasks.json
+\xef\xbb\xbftasks.json
 __pycache__/
+mutants/
+.coverage
+.mutmut-cache/
+.pytest_cache/

@@ -1,0 +1,1 @@
+mutants=33 killed=33 survived=0 score=100.0%

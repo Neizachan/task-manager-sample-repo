@@ -1,0 +1,4 @@
+[tool.mutmut]
+source_paths = ["app/"]
+also_copy = ["pytest.ini"]
+pytest_add_cli_args_test_selection = ["tests/test_lab6_ai.py","tests/test_lab7_targeted.py"]
