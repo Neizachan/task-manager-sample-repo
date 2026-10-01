@@ -89,3 +89,5 @@ Questionable / unspecified AI suggestions (checked against the spec, not halluci
 * The AI reproduced about 82 % of my manual cases and added 5-6 edge classes (NaN/inf, numeric string, bool-as-int) I had not considered.
 * It missed the exact-equality case and could not tell which failures were "accidental passes".
 * It never invented a wrong boundary, but several of its expected results rest on assumptions the spec does not contain, so a human has to decide what the spec should say.
+
+Screenshots: see labs/lab-3/screenshots/.

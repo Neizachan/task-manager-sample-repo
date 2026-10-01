@@ -19,27 +19,22 @@ PAGE = """<!doctype html><title>Task Manager</title>
   {% else %}<a class="done-link" href="/done/{{ t.id }}">Mark done</a>{% endif %}</li>{% endfor %}
 </ul>"""
 
+tasks = []
+app = Flask(__name__)
 
-def create_app():
-    app = Flask(__name__)
-    tasks = []
+@app.get("/")
+def index():
+    return render_template_string(PAGE, tasks=tasks, pending=len(get_pending_tasks(tasks)))
 
-    @app.get("/")
-    def index():
-        return render_template_string(PAGE, tasks=tasks, pending=len(get_pending_tasks(tasks)))
+@app.post("/add")
+def add():
+    add_task(tasks, request.form["title"], int(request.form.get("priority", 1)))
+    return redirect("/")
 
-    @app.post("/add")
-    def add():
-        add_task(tasks, request.form["title"], int(request.form.get("priority", 1)))
-        return redirect("/")
-
-    @app.get("/done/<int:task_id>")
-    def done(task_id):
-        complete_task(tasks, task_id)
-        return redirect("/")
-
-    return app
-
+@app.get("/done/<int:task_id>")
+def done(task_id):
+    complete_task(tasks, task_id)
+    return redirect("/")
 
 if __name__ == "__main__":
-    create_app().run()
+    app.run(port=5000)
