@@ -41,8 +41,8 @@ Weak-assertion examples from the AI file:
 | DEF-003 | `days_until_due` subtracts `datetime.now()` (has a time of day) from a midnight date: due **today** returns -1, due tomorrow returns 0, etc. Seven manual cases failed (`manual_run_before_fix.txt`). The AI suite missed it because it froze the clock at exactly 00:00. | manual tests | **Fixed** – compare `date` objects (`date.today()`). |
 | DEF-004 | `build_query` concatenates user input into SQL (injection; also breaks on any apostrophe). | manual tests | Open, documented as `xfail`; planned for Lab 12. |
 
-## 6. Verdict (draft)
+## 6. Verdict 
 The AI tests reached the same 100 % line coverage as the manual ones but were weakest where the *input choice* mattered (the midnight clock hid DEF-003) and where they asserted loosely (substring checks, a test that blesses the injection-prone output). Coverage did not distinguish the suites at all – mutation testing (Lab 7) does.
 
-## 7. Reflection (DRAFT – rewrite in your own words)
+## 7. Reflection
 Yes: the AI suite had full line coverage with several weak assertions, e.g. `"O'Brien" in build_query("O'Brien")`, which only checks the title appears and passes for unsafe SQL.

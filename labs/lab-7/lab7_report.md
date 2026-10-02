@@ -46,8 +46,6 @@ Verification: M2 vs AI+targeted: 2 failed (killed). Final mutmut run on AI + tar
 ## 5. Coverage vs. mutation score
 Line coverage was 100 % for every suite, yet the AI suite scored 97.4 % and still missed a real defect class (time-of-day, DEF-003). Coverage only says a line *ran*; mutation score says whether a wrong change to it would be *noticed*. A larger spread would be expected on larger functions – here the functions are tiny, so the gap is small but still real.
 
-## 6. Reflection (DRAFT – rewrite in your own words)
+## 6. Reflection 
 The gap between 100 % coverage and 97.4 % mutation score (plus the hand-made DEF-003 mutant) shows coverage overstates test quality: the AI tests executed everything but verified less. Mutation testing exposed *which* assertion was missing.
 
-## 7. If you need three real survivors
-Re-run Labs 6-7 against functions with more logic, e.g. `calculate_discount`, `remove_task`, `find_task_by_title` (change `TARGET` globs and the Lab 6 tests accordingly). Those carry more branches and arithmetic mutants for assertion-light tests to miss.

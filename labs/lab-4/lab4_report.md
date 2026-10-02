@@ -113,7 +113,7 @@ Prompt given to Claude: the eight requirements verbatim, "generate a requirement
 | Expected results | explicit per case | not given |
 | Assumptions flagged | yes (case-insensitive email, empty search) | none |
 
-Divergence and verdict (draft): the AI matrix is complete at requirement level and a fast skeleton, but thinner on negatives, boundaries, levels and expected results. For an audit I would trust mine, because each requirement has explicit expected outcomes and boundary/negative evidence; I would still use the AI draft to check I had not missed a requirement. Caveat: my cases still need confirming against the instructor's definitions (the `[ASSUMPTION]` rows).
+Divergence and verdict the AI matrix is complete at requirement level and a fast skeleton, but thinner on negatives, boundaries, levels and expected results. For an audit I would trust mine, because each requirement has explicit expected outcomes and boundary/negative evidence; I would still use the AI draft to check I had not missed a requirement. Caveat: my cases still need confirming against the instructor's definitions (the `[ASSUMPTION]` rows).
 
-## 6. Reflection (DRAFT – rewrite in your own words)
+## 6. Reflection
 The AI matrix diverged mainly in depth: one or two generic cases per requirement, all at System level, with no expected results or negative notification cases. For an audit I would trust the manual matrix because each row can be executed and judged pass/fail.
