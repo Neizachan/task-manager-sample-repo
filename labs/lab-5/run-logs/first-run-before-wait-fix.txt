@@ -1,0 +1,488 @@
+PS C:\Users\user\Downloads\task-manager-sample-repo (1)> cd "C:\Users\user\Downloads\task-manager-sample-repo (1)"
+PS C:\Users\user\Downloads\task-manager-sample-repo (1)> dir C:\Users\user\Downloads\lab5-update
+
+
+    Directory: C:\Users\user\Downloads\lab5-update
+
+
+Mode                 LastWriteTime         Length Name                                
+----                 -------------         ------ ----                                
+d-----         10/2/2026   7:44 PM                labs                                
+d-----         10/2/2026   7:44 PM                webapp                              
+-a----         10/2/2026   7:44 PM            865 README.md                           
+
+
+PS C:\Users\user\Downloads\task-manager-sample-repo (1)> Remove-Item labs\lab-5\pages\task_page.py, labs\lab-5\data\tasks.csv, webapp\server.py -ErrorAction SilentlyContinue
+>> Copy-Item "C:\Users\user\Downloads\lab5-update\*" . -Recurse -Force
+PS C:\Users\user\Downloads\task-manager-sample-repo (1)> dir labs\lab-5
+>> pip install selenium
+>> pytest labs/lab-5/test_ui.py -v
+
+
+    Directory: C:\Users\user\Downloads\task-manager-sample-repo (1)\labs\lab-5
+
+
+Mode                 LastWriteTime         Length Name                                
+----                 -------------         ------ ----                                
+d-----         10/2/2026   7:47 PM                data                                
+d-----         10/2/2026   7:47 PM                pages                               
+d-----         10/1/2026   2:42 AM                screenshots                         
+d-----         10/1/2026   2:54 AM                __pycache__                         
+-a----         10/2/2026   7:44 PM            374 conftest.py                         
+-a----         10/2/2026   7:44 PM           3157 README.md                           
+-a----         10/2/2026   7:44 PM           1294 test_ui.py                          
+Requirement already satisfied: selenium in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (4.50.0)
+Requirement already satisfied: certifi>=2026.2.25 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from selenium) (2026.7.22)
+Requirement already satisfied: trio<1.0,>=0.31.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from selenium) (0.34.0)
+Requirement already satisfied: trio-websocket<1.0,>=0.12.2 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from selenium) (0.12.2)
+Requirement already satisfied: typing_extensions<5.0,>=4.15.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from selenium) (4.16.0)
+Requirement already satisfied: urllib3<3.0,>=2.6.3 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from urllib3[socks]<3.0,>=2.6.3->selenium) (2.8.0)
+Requirement already satisfied: websocket-client<2.0,>=1.8.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from selenium) (1.9.2)
+Requirement already satisfied: attrs>=23.2.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (26.1.0)
+Requirement already satisfied: sortedcontainers in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (2.4.0)
+Requirement already satisfied: idna in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (3.20)
+Requirement already satisfied: outcome in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (1.3.0.post0)
+Requirement already satisfied: sniffio>=1.3.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (1.3.1)
+Requirement already satisfied: cffi>=1.14 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio<1.0,>=0.31.0->selenium) (2.1.1)
+Requirement already satisfied: wsproto>=0.14 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from trio-websocket<1.0,>=0.12.2->selenium) (1.3.2)
+Requirement already satisfied: pysocks!=1.5.7,<2.0,>=1.5.6 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from urllib3[socks]<3.0,>=2.6.3->selenium) (1.7.1)
+Requirement already satisfied: pycparser in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=1.14->trio<1.0,>=0.31.0->selenium) (3.0)
+Requirement already satisfied: h11<1,>=0.16.0 in C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\site-packages (from wsproto>=0.14->trio-websocket<1.0,>=0.12.2->selenium) (0.16.0)
+================================ test session starts =================================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\user\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\user\Downloads\task-manager-sample-repo (1)
+configfile: pytest.ini
+plugins: cov-7.1.0
+collected 5 items                                                                     
+
+labs/lab-5/test_ui.py::test_login_message[tomsmith-SuperS] FAILED               [ 20%]
+labs/lab-5/test_ui.py::test_login_message[tomsmith-wrongp] PASSED               [ 40%]
+labs/lab-5/test_ui.py::test_login_message[baduser-SuperS] FAILED                [ 60%]
+labs/lab-5/test_ui.py::test_login_message[admin-admin] PASSED                   [ 80%]
+labs/lab-5/test_ui.py::test_login_message[empty-empty] FAILED                   [100%]
+
+====================================== FAILURES ======================================
+________________________ test_login_message[tomsmith-SuperS] _________________________
+
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="2b587391f48bca6dad27fc827816218f")>
+row = {'username': 'tomsmith', 'password': 'SuperSecretPassword!', 'expected_message':'You logged into a secure area!'}
+
+    @pytest.mark.parametrize("row", ROWS, ids=[f"{r['username'] or 'empty'}-{r['password'][:6] or 'empty'}" for r in ROWS])
+    def test_login_message(driver, row):
+        page = LoginPage(driver, BASE).open()
+>       page.login(row["username"], row["password"])
+
+labs\lab-5\test_ui.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+labs\lab-5\pages\login_page.py:21: in login
+    u = self.driver.find_element(*self.USERNAME)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:914: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:506: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x00000166DEC62270>
+response = {'status': 404, 'value': '{"value":{"error":"no such element","message":"nosuch element: Unable to locate element: {\...202e4c]\\n\\tKERNEL32!BaseThreadInitThunk[0x7ffe5dd1cdf7+17]\\n\\tntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Check that a JSON response from the WebDriver does not have an error.
+    
+        Args:
+            response: The JSON response from the WebDriver server as a dictionary
+                object.
+    
+        Raises:
+            WebDriverException: If the response contains an error message.
+        """
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass
+    
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break
+        else:
+            exception_class = WebDriverException
+    
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+    
+        screen = None  # type: ignore[assignment]
+        if "screen" in value:
+            screen = value["screen"]
+    
+        stacktrace = None
+        st_value = value.get("stackTrace") or value.get("stacktrace")
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get("methodName", "<anonymous>")
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="username"]"}
+E         (Session info: chrome=154.0.8037.58); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+E       Stacktrace:
+E               chromedriver!GetHandleVerifier [0x7ff6ad2e9d55+5a55]
+E               chromedriver!(No symbol) [0x7ff6ad20f540]
+E               chromedriver!(No symbol) [0x7ff6ad0345fd]
+E               chromedriver!(No symbol) [0x7ff6ad08fca1]
+E               chromedriver!(No symbol) [0x7ff6ad08ff6c]
+E               chromedriver!(No symbol) [0x7ff6ad0e3077]
+E               chromedriver!(No symbol) [0x7ff6ad0dfcd9]
+E               chromedriver!(No symbol) [0x7ff6ad081a12]
+E               chromedriver!(No symbol) [0x7ff6ad082823]
+E               chromedriver!GetHandleVerifier [0x7ff6ad7004b1+41c1b1]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72e26b+449f6b]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72274e+43e44e]
+E               chromedriver!GetHandleVerifier [0x7ff6ad3e32fe+feffe]
+E               chromedriver!(No symbol) [0x7ff6ad21cb55]
+E               chromedriver!(No symbol) [0x7ff6ad217f64]
+E               chromedriver!(No symbol) [0x7ff6ad2180f4]
+E               chromedriver!(No symbol) [0x7ff6ad202e4c]
+E               KERNEL32!BaseThreadInitThunk [0x7ffe5dd1cdf7+17]
+E               ntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]
+
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+_________________________ test_login_message[baduser-SuperS] _________________________
+
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="392a668ff18bbd84be7f1eedfc43152f")>
+row = {'username': 'baduser', 'password': 'SuperSecretPassword!', 'expected_message': 'Your username is invalid!'}
+
+    @pytest.mark.parametrize("row", ROWS, ids=[f"{r['username'] or 'empty'}-{r['password'][:6] or 'empty'}" for r in ROWS])
+    def test_login_message(driver, row):
+        page = LoginPage(driver, BASE).open()
+        page.login(row["username"], row["password"])
+>       assert row["expected_message"] in page.flash_text()
+                                          ^^^^^^^^^^^^^^^^^
+
+labs\lab-5\test_ui.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+labs\lab-5\pages\login_page.py:29: in flash_text
+    return self.driver.find_element(*self.FLASH).text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:914: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:506: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x00000166DED420D0>
+response = {'status': 404, 'value': '{"value":{"error":"no such element","message":"nosuch element: Unable to locate element: {\...202e4c]\\n\\tKERNEL32!BaseThreadInitThunk[0x7ffe5dd1cdf7+17]\\n\\tntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Check that a JSON response from the WebDriver does not have an error.
+    
+        Args:
+            response: The JSON response from the WebDriver server as a dictionary
+                object.
+    
+        Raises:
+            WebDriverException: If the response contains an error message.
+        """
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass
+    
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break
+        else:
+            exception_class = WebDriverException
+    
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+    
+        screen = None  # type: ignore[assignment]
+        if "screen" in value:
+            screen = value["screen"]
+    
+        stacktrace = None
+        st_value = value.get("stackTrace") or value.get("stacktrace")
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get("methodName", "<anonymous>")
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="flash"]"}
+E         (Session info: chrome=154.0.8037.58); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+E       Stacktrace:
+E               chromedriver!GetHandleVerifier [0x7ff6ad2e9d55+5a55]
+E               chromedriver!(No symbol) [0x7ff6ad20f540]
+E               chromedriver!(No symbol) [0x7ff6ad0345fd]
+E               chromedriver!(No symbol) [0x7ff6ad08fca1]
+E               chromedriver!(No symbol) [0x7ff6ad08ff6c]
+E               chromedriver!(No symbol) [0x7ff6ad0e3077]
+E               chromedriver!(No symbol) [0x7ff6ad0dfcd9]
+E               chromedriver!(No symbol) [0x7ff6ad081a12]
+E               chromedriver!(No symbol) [0x7ff6ad082823]
+E               chromedriver!GetHandleVerifier [0x7ff6ad7004b1+41c1b1]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72e26b+449f6b]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72274e+43e44e]
+E               chromedriver!GetHandleVerifier [0x7ff6ad3e32fe+feffe]
+E               chromedriver!(No symbol) [0x7ff6ad21cb55]
+E               chromedriver!(No symbol) [0x7ff6ad217f64]
+E               chromedriver!(No symbol) [0x7ff6ad2180f4]
+E               chromedriver!(No symbol) [0x7ff6ad202e4c]
+E               KERNEL32!BaseThreadInitThunk [0x7ffe5dd1cdf7+17]
+E               ntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]
+
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+__________________________ test_login_message[empty-empty] ___________________________
+
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="ff7f0075e809109358231f1b467ed8f1")>
+row = {'username': '', 'password': '', 'expected_message': 'Your username is invalid!'}
+
+    @pytest.mark.parametrize("row", ROWS, ids=[f"{r['username'] or 'empty'}-{r['password'][:6] or 'empty'}" for r in ROWS])
+    def test_login_message(driver, row):
+        page = LoginPage(driver, BASE).open()
+        page.login(row["username"], row["password"])
+>       assert row["expected_message"] in page.flash_text()
+                                          ^^^^^^^^^^^^^^^^^
+
+labs\lab-5\test_ui.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+labs\lab-5\pages\login_page.py:29: in flash_text
+    return self.driver.find_element(*self.FLASH).text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:914: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py:506: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x00000166DED15CD0>
+response = {'status': 404, 'value': '{"value":{"error":"no such element","message":"nosuch element: Unable to locate element: {\...202e4c]\\n\\tKERNEL32!BaseThreadInitThunk[0x7ffe5dd1cdf7+17]\\n\\tntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Check that a JSON response from the WebDriver does not have an error.
+    
+        Args:
+            response: The JSON response from the WebDriver server as a dictionary
+                object.
+    
+        Raises:
+            WebDriverException: If the response contains an error message.
+        """
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass
+    
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break
+        else:
+            exception_class = WebDriverException
+    
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+    
+        screen = None  # type: ignore[assignment]
+        if "screen" in value:
+            screen = value["screen"]
+    
+        stacktrace = None
+        st_value = value.get("stackTrace") or value.get("stacktrace")
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get("methodName", "<anonymous>")
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="flash"]"}
+E         (Session info: chrome=154.0.8037.58); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+E       Stacktrace:
+E               chromedriver!GetHandleVerifier [0x7ff6ad2e9d55+5a55]
+E               chromedriver!(No symbol) [0x7ff6ad20f540]
+E               chromedriver!(No symbol) [0x7ff6ad0345fd]
+E               chromedriver!(No symbol) [0x7ff6ad08fca1]
+E               chromedriver!(No symbol) [0x7ff6ad08ff6c]
+E               chromedriver!(No symbol) [0x7ff6ad0e3077]
+E               chromedriver!(No symbol) [0x7ff6ad0dfcd9]
+E               chromedriver!(No symbol) [0x7ff6ad081a12]
+E               chromedriver!(No symbol) [0x7ff6ad082823]
+E               chromedriver!GetHandleVerifier [0x7ff6ad7004b1+41c1b1]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72e26b+449f6b]
+E               chromedriver!GetHandleVerifier [0x7ff6ad72274e+43e44e]
+E               chromedriver!GetHandleVerifier [0x7ff6ad3e32fe+feffe]
+E               chromedriver!(No symbol) [0x7ff6ad21cb55]
+E               chromedriver!(No symbol) [0x7ff6ad217f64]
+E               chromedriver!(No symbol) [0x7ff6ad2180f4]
+E               chromedriver!(No symbol) [0x7ff6ad202e4c]
+E               KERNEL32!BaseThreadInitThunk [0x7ffe5dd1cdf7+17]
+E               ntdll!RtlUserThreadStart [0x7ffe5ec7ee4c+2c]
+
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+============================== short test summary info ===============================
+FAILED labs/lab-5/test_ui.py::test_login_message[tomsmith-SuperS] - selenium.common.exceptions.NoSuchElementException: Message: no such element: Unabl...
+FAILED labs/lab-5/test_ui.py::test_login_message[baduser-SuperS] - selenium.common.exceptions.NoSuchElementException: Message: no such element: Unabl...
+FAILED labs/lab-5/test_ui.py::test_login_message[empty-empty] - selenium.common.exceptions.NoSuchElementException: Message: no such element: Unabl...
+====================== 3 failed, 2 passed in 219.73s (0:03:39) =======================
+
+
+PS C:\Users\user\Downloads\task-manager-sample-repo (1)> 
