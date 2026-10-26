@@ -1,0 +1,14 @@
+{
+  "name": "lab-8",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test:visual": "playwright test --project=desktop-visual --project=mobile-visual",
+    "baseline": "playwright test --project=desktop-visual --project=mobile-visual --update-snapshots",
+    "test:a11y": "playwright test --project=a11y"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0"
+  }
+}
