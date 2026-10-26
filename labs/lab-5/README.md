@@ -45,9 +45,6 @@ pytest labs/lab-5/test_ui.py -v                     # should be 5 passed
 3. **With Healenium:** set `HEALENIUM_URL` and `APP_URL=http://host.docker.internal:5000` again, rerun, and screenshot the result as `healed.png` plus the Healenium dashboard/logs as `dashboard.png`.
 
 ## D. Write-up (step 9) -> `labs/lab-5/analysis.md`
-Record: how many of the 5 tests healed, whether it picked the right element (the renamed username box vs. the password box), and any failures. Then answer the reflection: *what kinds of UI changes would self-healing handle well, and which need a human?* (own words).
+Record: how many of the 5 tests healed, whether it picked the right element (the renamed username box vs. the password box), and any failures. 
 
-Tip: if Healenium setup eats your time, tell your TA – the Page Object, data-driven tests and the drift failure report (A and C2) are still real evidence.
 
-## If the public site is slow or flaky
-the-internet.herokuapp.com runs on a free host and can be slow (a first run took ~3.5 min). The page object now waits up to 30 s. If it still fails, check the page loads in your own browser, rerun, or run the baseline against the local mirror instead (`python -m webapp.login_mirror`, then `$env:APP_URL="http://127.0.0.1:5000"`) and say so in your write-up.
