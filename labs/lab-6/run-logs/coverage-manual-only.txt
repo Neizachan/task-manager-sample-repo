@@ -1,0 +1,21 @@
+=============================================== test session starts ===============================================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\user\Downloads\task-manager-sample-repo (1)
+configfile: pytest.ini
+plugins: cov-7.1.0
+collected 22 items
+
+tests\test_lab6_manual.py ................xx....                                                             [100%]
+
+================================================= tests coverage ==================================================
+________________________________ coverage: platform win32, python 3.13.15-final-0 _________________________________
+
+Name              Stmts   Miss Branch BrPart  Cover
+---------------------------------------------------
+app\__init__.py       0      0      0      0   100%
+app\cli.py           10      1      2      1    83%
+app\storage.py       14      0      2      0   100%
+app\tasks.py         44     26     20      0    31%
+---------------------------------------------------
+TOTAL                68     27     24      1    50%
+========================================== 20 passed, 2 xfailed in 0.65s ==========================================
